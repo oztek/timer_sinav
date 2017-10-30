@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Sınav saati</title>
+</head>
+<script lang="javascipt">
+	var baslangic;
+	var myVar=setInterval(tikla(),1000);
+	function tikla(){
+		
+	}
+	function bulzaman(){
+		baslangic = new Date();
+		var zaman;
+		zaman=baslangic.getHours() + " Saat " + baslangic.getMinutes() + " Dakika " + baslangic.getSeconds() + " Saniye";
+		document.getElementById("zamanbasla").innerHTML=zaman;
+	}
+	function sifirla(){
+		document.getElementById("zamanbasla").innerHTML="";
+		document.getElementById("sure").innerHTML="";
+	}
+	function arttir(){
+		document.getElementById("sure").value=parseInt(document.getElementById("sure").value)+5;
+	}
+	function azalt(){
+		document.getElementById("sure").value=parseInt(document.getElementById("sure").value)-5;
+		if(parseInt(document.getElementById("sure").value)<0) document.getElementById("sure").value=0;
+	}
+</script>
+<table>
+	<tr>
+		<td>Başlama Zamanı</td><td><div id="zamanbasla"></div></td>
+	</tr>
+<tr>
+		<td>Sınav Süresi</td><td><input type="text" id="sure" value="0"> dakika<input type="button" value="+5" onclick="arttir()">
+			<input type="button" value="-5" onclick="azalt()"></td>
+	</tr>
+	<tr>
+		<td>Kalan Süre</td><td></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="Sıfırla" onclick="sifirla()"></td><td><input type="button" value="Başlat" onclick="bulzaman()"></td>
+	</tr>
+</table>
+</html>
